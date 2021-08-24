@@ -5,9 +5,7 @@ const dataLength = currentInput.getAttribute("data-length");
 currentInput.addEventListener('change', validationOfInput);
 
 function validationOfInput(event) {
-    let currentValue = event.currentTarget.value;
-    let inputLength = currentValue.length;
-    console.log(currentValue.length)
+    let inputLength = event.currentTarget.value.length;
 
     if (inputLength == dataLength) {
         console.log(true);
