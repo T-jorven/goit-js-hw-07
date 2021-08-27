@@ -2,17 +2,28 @@ const currentInput = document.getElementById("validation-input");
 const dataLength = currentInput.getAttribute("data-length");
 
 
-currentInput.addEventListener('change', validationOfInput);
+currentInput.addEventListener('blur', validationOfInput);
+currentInput.addEventListener("focus", onInputFocus);
 
 function validationOfInput(event) {
     let inputLength = event.currentTarget.value.length;
 
-    if (inputLength == dataLength) {
+    if (inputLength === Number(dataLength)) {
         console.log(true);
         currentInput.classList.add("valid");
-        currentInput.classList.remove("invalid");
     } else {
         currentInput.classList.add("invalid");
-        currentInput.classList.remove("valid");
     }
 }
+// I thought this is a neat solution
+function onInputFocus(event) {
+  event.currentTarget.classList.remove("invalid", "valid");
+}
+
+
+
+
+
+
+
+
